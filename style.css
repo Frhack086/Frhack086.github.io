@@ -1,0 +1,19 @@
+@media (min-width: 768px) {  
+    .margen-mobile {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 992px ) { 
+    .margen-mobile {
+        margin-top: 0;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px ) {
+    .margen-mobile {
+        margin-top: 0;
+    }
+
+}
