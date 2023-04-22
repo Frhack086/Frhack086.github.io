@@ -1,3 +1,4 @@
+
 function encriptar() {
 
 	let texto = document.getElementById("encrypt-text-area").value;
@@ -10,6 +11,7 @@ function encriptar() {
 		.replace(/a/gi, "ai")
 		.replace(/o/gi, "ober")
 		.replace(/u/gi, "ufat");
+	
 
 
 	if (texto.length != 0) {
@@ -19,7 +21,9 @@ function encriptar() {
 		}
 
 		mostrarResultado();
+
 		resultado.innerText = textoCifrado;
+		document.getElementById("encrypt-text-area").value = "";
 		//muñeco.src="./img/encriptado.jpg";
 	} else {
 		//muñeco.src ="./img/muñeco.png";
@@ -30,13 +34,19 @@ function encriptar() {
 function mostrarResultado() {
 	let x = document.getElementById("resultado-mensaje");
 	let y = document.getElementById("mensaje-por-defecto");
-	if (x.style.display === "none") {
+	
+	if (x.style.display === "none" && y.style.display == "block"){
 		x.style.display = "block";
 		y.style.display = "none";
-	} else {
-		x.style.display = "none";
-		y.style.display = "block";
 	}
+}
+
+function defaultApp(){
+	let x = document.getElementById("resultado-mensaje");
+	let y = document.getElementById("mensaje-por-defecto");
+
+	x.style.display = "none";
+	y.style.display = "block";
 }
 
 function copiarPortapapeles() {
@@ -49,7 +59,9 @@ function copiarPortapapeles() {
 	// Alert the copied text
 	alert("Copied the text: " + copyText.innerText);
 
-	mostrarResultado();
+	defaultApp();
+	document.getElementById("encrypt-text-area").value = "";
+
 }
 
 function validador(texto) {
@@ -97,10 +109,13 @@ function desencriptar() {
 		}
 
 		mostrarResultado();
+		document.getElementById("encrypt-text-area").value = "";
+
 		resultado.innerText = textoCifrado;
 		//muñeco.src="./img/encriptado.jpg";
 	} else {
 		//muñeco.src ="./img/muñeco.png";
 		alert("debes ingresar algun texto");
 	}
+
 }
