@@ -14,58 +14,43 @@
 </head>
 
 <body>
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-lg-8">
-        <div class="Encriptar">
+  <body>
 
-          <div class="form-floating">
-            <textarea id="encrypt-text-area" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="min-height: 400px;"></textarea>
-            <label for="floatingTextarea">Ingrese texto aqui</label>
+    <div class="container-lg mt-4 mb-4">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 encriptar"> <!-- Adición de col-xs-12 al contenedor izquierdo para generar concordancia-->
+          <div class="card izquierda border-info">  <!-- Para mayor control utilizamos la clase card, agregar la clase "izquierda" y "derecha" nos permite darle estilos puntuales después -->
+            <textarea id="encrypt-text-area" placeholder="Ingrese texto aqui" id="floatingTextarea"></textarea> <!-- Tenías una clase que no te permitía aplicarle estilos al textarea de forma directa y era redundante || Cuidado con declarar dos id por separado, es posible hacerlo pero es buena práctica agregarlo en una sola declaración || La clase "floatingTextarea" no permitía encriptar-->
+            <!-- No es necesario el label aquí ya que antes habías ingresado un placeholder que hacía la misma función que la etiqueta label y se vuelve redundante -->
+            <p class="card-text"><i class="bi bi-info-circle"></i> Debe funcionar solo con letras minúsculas.</p>
+            <p class="card-text"><i class="bi bi-info-circle"></i> No deben ser utilizados letras con acentos ni caracteres especiales.</p>
+            <p class="card-text"><i class="bi bi-info-circle"></i> Debe ser posible convertir una palabra para la versión encriptada también devolver una palabra encriptada para su versión original.</p>
+            <div class="botones"> <!-- div que vamos a usar para alinear con flex -->
+              <button class="btn btn-primary shadow-lg" onclick="encriptar()">Encriptar</button>
+              <button class="btn btn-primary shadow-lg"onclick="desencriptar()">Desencriptar</button> <!-- A menos que sea sumamente necesario, evita usar un button y un input en la misma sección si estarán relacionados, o usa solo inputs o solo button -->
+            </div>
           </div>
-
-          <div class="terminos">
-            <p><i class="bi bi-info-circle"></i> Debe funcionar solo con letras minúsculas</p>
-            <p><i class="bi bi-info-circle"></i>No deben ser utilizados letras con acentos ni caracteres especiales </p>
-            <p><i class="bi bi-info-circle"></i>Debe ser posible convertir una palabra para la versión encriptada también devolver una palabra encriptada para su versión original.</p>
-          </div>
-
-          <div class="botones">
-            <button class="btn btn-primary" type="button" onclick="encriptar()">
-              Encriptar
-            </button>
-            <input type="button" class="btn btn-primary " value="Desencriptar" onclick="desencriptar()" />
-          </div>
-
         </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-12 col-lg-4">
-        <div class="card margen-mobile">
-          <div class="card-body">
-            <div id="mensaje-por-defecto" style="display: block;">
-              <img src="/assets/img/mono.png">
-              <h5 class="card-title">Ningun mensaje fue encontrado</h5>
-              <p id="card-text">
-                Ingresa el texto que deseas encriptar o desencriptar
-              </p>
-
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+          <div class="card derecha border-info">
+            <div id="mensaje-por-defecto" style="display: block;"> <!-- Es posible modificar los estilos desde Javascript si los escribes en CSS, podría servirte mucho explorarla -->
+              <img src="assets/img/mono.png" class="mb-5 mt-3">
+              <!-- Agregamos la clase text-center para centrar el texto || en el card-text no te tomaba los estilos porque lo tenías declarado con id y no con clases -->
+              <h5 class="card-title text-center mb-3"><strong>Ningun mensaje fue encontrado</strong></h5>
+              <p class="card-text text-center">Ingresa el texto que deseas encriptar o desencriptar</p>
             </div>
             <div id="resultado-mensaje" style="display: none;">
               <p id="resultado"></p>
-
-              <button class="btn btn-primary" type="button" onclick="copiarPortapapeles()">
-                Copiar
-              </button>
+              <div class="botones">  <!-- Englobamos el botón de copiar en un div con la clase botones que reutilizamos para que nos alinie el botón al centro del mismo modo -->
+                <button class="btn btn-primary shadow-lg" onclick="copiarPortapapeles()">Copiar</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-
-  </div>
-</body>
-<script src="script.js"></script>
+    
+    <script src="script.js"></script>
+  </body>
 
 </html>

@@ -1,3 +1,55 @@
+body {
+    background-color: #dfdcdc;
+}
+
+.izquierda, .derecha {
+background: transparent;
+width: 100%;
+height: 100%;  /* Ponemos los dos contenedores al mismo tamaño de largo, es decir, al 100% posible del largo del contenedor */
+padding: 2%; /* Al darle este porcentaje le permitimos al navegador realizar el cálculo necesario y acomodarlo incluso en responsive*/
+}
+textarea {
+    background: #e9e8e8;
+    border: none;
+    resize: none;   /* La propiedad resize no permite al usuario modificar el tamaño arrastrando la caja*/
+    margin-bottom: 5%; /* Al textarea le damos un margen abajo del 5%, es decir, el 5% del total de su caja contenedora*/
+    min-height: 350px; /* Evita poner estilos directos en el html, mejor agregalos al CSS || Bajamos 50px de largo para que los elementos no se vean tan apretados*/
+    padding: 1.5%;  /* Le damos una pequeña distancia entre el texto que se ingresa y el borde del textarea */
+}
+
+textarea:focus {
+    outline: none; /* Recurso estético para que al usar el textarea no te genere una linea */
+}
+
+/* Le damos estilos al texto para que no sea tan grande */
+.card-text {
+    font-size: 0.9em;
+    cursor: default;
+}
+
+.botones {
+    display: flex;  /* Le indicamos que usaremos flex en este contenedor */
+    width: 100%;  /* Al usar flex o flexbox es necesario indicarle el tamaño del que dispone en su contenedor, como dentro de la tarjeta izquierda no necesitamos que esté junto a nada le damos el 100% */
+    justify-content: space-evenly; /* Justificamos el contenido del div con clase botones y alineamos los dos botones que tenemos. Space-evenly es una propiedad que nos permite darle a los elementos de ambos lados un espaciamiento simétrico*/
+}
+
+#mensaje-por-defecto img {
+width: 80%;
+}
+
+#resultado-mensaje {
+width: 100%;
+height:70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*
+
+Al utilizar Bootstrap no es necesario manejar media Querys ya que la librería lo hace por ti.
+El responsive en tu programa está bien manejado así que no te preocupes por eso :)
+
 @media (min-width: 768px) {  
     .margen-mobile {
         margin-top: 20px;
@@ -10,10 +62,11 @@
     }
 }
 
-/* Large devices (large desktops, 1200px and up) */
+Large devices (large desktops, 1200px and up) 
 @media (min-width: 1200px ) {
     .margen-mobile {
         margin-top: 0;
     }
 
 }
+*/
